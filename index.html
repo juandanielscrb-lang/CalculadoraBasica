@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CALCULADORA BASICA</title>
+</head>
+<body>
+    <h1><center>CALCULADORA BÁSICA</center></h1>
+
+    <nav>
+        <ul>
+        <li><a href="">link1</a></li>
+        <li><a href="">link2</a></li> 
+        <ul>
+    </nav>
+</body>
+
+<main>
+<section>
+        <div class="calculator">
+            <input type="number" id="num1" placeholder="Numero 1">
+            <input type="number" id="num2" placeholder="Numero 2">
+            <div>
+                <button onclick="calcular('+')">+</button>
+                <button onclick="calcular('-')">-</button>
+                <button onclick="calcular('*')">*</button>
+                <button onclick="calcular('/')">/</button>                        
+            </div>
+            <input type="text" id="resultado" placeholder="Resultado" readonly>
+        </div>
+    </section>
+
+    <script>
+        function calcular(operador) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let resultado = '';
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = 'Digite los numeros';
+            } else {
+                switch (operador) {
+                    case '+':
+                        resultado = num1 + num2;
+                        break;
+                    case '-':
+                        resultado = num1 - num2;
+                        break;
+                    case '*':
+                        resultado = num1 * num2;
+                        break;
+                    case '/':
+                        resultado = num2 !== 0 ? (num1 / num2) : 'No se puede dividir entre 0';
+                        break;
+                }
+            }
+
+            document.getElementById('resultado').value = resultado;
+        }
+    </script>
+    <footer>
+        <p>juandanielscrb@gmail.com</p>
+    </footer>
+</html>
